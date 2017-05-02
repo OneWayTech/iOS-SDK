@@ -1,4 +1,16 @@
-# OneWaySDK iOS Integration Guide
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/OneWayTech/iOS-SDK/master/OnewaySDK-Demo/Assets.xcassets/logoImg.imageset/logoImg.png" alt="OneWay" title="OneWay">
+</p>
+
+![Travis](https://img.shields.io/travis/rust-lang/rust.svg)
+![Travis](https://img.shields.io/badge/version-v1.2.1-brightgreen.svg)
+![Travis](https://img.shields.io/badge/pod-v1.2.1-blue.svg)
+![Travis](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
+![Travis](https://img.shields.io/hexpm/l/plug.svg)
+
+<p>
+
 |Version | Update | Date |
 | :--- | :--- | :--- |
 | 1.2.1 | 1.support Bitcode  2.support Xcode 7 3.Modify some parameters| 2017.03.09 |
@@ -55,4 +67,3 @@ if ([OneWaySDK isReady]) {
     //You can set default PlacementID in our developer platform.
 }
 ```
-
