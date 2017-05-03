@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'OneWaySDK'
-  s.version      = '1.2.1-R'
+  s.version      = '1.3.0'
   s.summary      = 'OneWaySDK for video ads'
 
   s.description  = <<-DESC

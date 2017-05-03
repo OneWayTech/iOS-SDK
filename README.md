@@ -13,8 +13,9 @@
 
 |Version | Update | Date |
 | :--- | :--- | :--- |
+| 1.3.0 | Optimizing multithreading | 2017.05.03 |
 | 1.2.1 | 1.support Bitcode  2.support Xcode 7 3.Modify some parameters| 2017.03.09 |
-| 1.2.0 | Fix some Bugs | 2017.01.09 |
+
 
 When you read this document, we assume that you already have a basis of iOS app development experience, and to understand the related basic concepts.
 

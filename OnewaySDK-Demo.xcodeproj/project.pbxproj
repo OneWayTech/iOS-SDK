@@ -11,7 +11,7 @@
 		5748F0861E710222004E6044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5748F0851E710222004E6044 /* LaunchScreen.storyboard */; };
 		574EC28C1EA9EE52000469E1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 574EC28B1EA9EE52000469E1 /* icon.png */; };
 		575136E21DAA2BCA00ED8327 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 575136E01DAA2BCA00ED8327 /* ViewController.m */; };
-		57ABCC321EB322C8006B12AA /* libOneWaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ABCC2F1EB322C8006B12AA /* libOneWaySDK.a */; };
+		576924581EB9F92700A8C8DC /* OnewaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 576924551EB9F92700A8C8DC /* OnewaySDK.a */; };
 		E0ADB0561D8BBD910035CFDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ADB0551D8BBD910035CFDB /* main.m */; };
 		E0ADB0591D8BBD910035CFDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ADB0581D8BBD910035CFDB /* AppDelegate.m */; };
 		E0ADB0611D8BBD910035CFDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ADB0601D8BBD910035CFDB /* Assets.xcassets */; };
@@ -22,12 +22,12 @@
 		5748F0851E710222004E6044 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		574EC28B1EA9EE52000469E1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		575136E01DAA2BCA00ED8327 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		576924551EB9F92700A8C8DC /* OnewaySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = OnewaySDK.a; sourceTree = "<group>"; };
+		576924561EB9F92700A8C8DC /* OneWaySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneWaySDK.h; sourceTree = "<group>"; };
+		576924571EB9F92700A8C8DC /* OWUserMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWUserMetaData.h; sourceTree = "<group>"; };
 		576F11CF1DD9961D00534799 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		576F11D11DD9962700534799 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		576F11D31DD9963A00534799 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		57ABCC2F1EB322C8006B12AA /* libOneWaySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOneWaySDK.a; sourceTree = "<group>"; };
-		57ABCC301EB322C8006B12AA /* OneWaySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneWaySDK.h; sourceTree = "<group>"; };
-		57ABCC311EB322C8006B12AA /* OWUserMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWUserMetaData.h; sourceTree = "<group>"; };
 		E0ADB0511D8BBD910035CFDB /* OnewaySDK-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnewaySDK-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ADB0551D8BBD910035CFDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E0ADB0571D8BBD910035CFDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,13 +42,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57ABCC321EB322C8006B12AA /* libOneWaySDK.a in Frameworks */,
+				576924581EB9F92700A8C8DC /* OnewaySDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		576924541EB9F92700A8C8DC /* OneWaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				576924551EB9F92700A8C8DC /* OnewaySDK.a */,
+				576924561EB9F92700A8C8DC /* OneWaySDK.h */,
+				576924571EB9F92700A8C8DC /* OWUserMetaData.h */,
+			);
+			path = OneWaySDK;
+			sourceTree = "<group>";
+		};
 		576F11CE1DD9961D00534799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,20 +69,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		57ABCC2E1EB322C8006B12AA /* OneWaySDK */ = {
-			isa = PBXGroup;
-			children = (
-				57ABCC2F1EB322C8006B12AA /* libOneWaySDK.a */,
-				57ABCC301EB322C8006B12AA /* OneWaySDK.h */,
-				57ABCC311EB322C8006B12AA /* OWUserMetaData.h */,
-			);
-			path = OneWaySDK;
-			sourceTree = "<group>";
-		};
 		E0ADB0481D8BBD910035CFDB = {
 			isa = PBXGroup;
 			children = (
-				57ABCC2E1EB322C8006B12AA /* OneWaySDK */,
+				576924541EB9F92700A8C8DC /* OneWaySDK */,
 				E0ADB0531D8BBD910035CFDB /* OnewaySDK-Demo */,
 				E0ADB0521D8BBD910035CFDB /* Products */,
 				576F11CE1DD9961D00534799 /* Frameworks */,
