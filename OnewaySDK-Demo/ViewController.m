@@ -3,7 +3,7 @@
 
 
 //竖屏广告
-#define PublishID @"mczgetdy2nq0ns3p" // 横屏请用 @"xhzegzfgxhwshnsg";
+#define PublishID @"yd9npds4pfb0qufi" // 横屏请用 @"2hi4zwe6907jsdo1";
 
 
 
