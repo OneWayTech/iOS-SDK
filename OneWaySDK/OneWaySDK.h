@@ -110,6 +110,7 @@ typedef NS_ENUM(NSInteger, OneWaySDKError) {
  */
 NS_ASSUME_NONNULL_BEGIN
 @protocol OneWaySDKDelegate <NSObject>
+
 /**
  *  Called when `OneWaySDK` is ready to show an ad. After this callback you can call the `OneWaySDK` `show:` method for this placement.
  *  Note that sometimes placement might no longer be ready due to exceptional reasons. These situations will give no new callbacks.
@@ -117,7 +118,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @warning To avoid error situations, it is always best to check `isReady` method status before calling show.
  *  @param placementId The ID of the placement that is ready to show, as defined in oneway ads admin tools.
  */
+
 - (void)oneWaySDKReady:(NSString *)placementId;
+
+
 /**
  *  Called when `OneWaySDK` encounters an error. All errors will be logged but this method can be used as an additional debugging aid. This callback can also be used for collecting statistics from different error scenarios.
  *
@@ -160,6 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param publishId   Unique identifier for a game, given by oneway ads admin tools or OneWay editor.
  *  @param delegate delegate for OneWaySDKDelegate callbacks
  */
+
 + (void)initialize:(NSString *)publishId
           delegate:(nullable id<OneWaySDKDelegate>)delegate;
 /**
@@ -190,6 +195,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The current `OneWaySDKDelegate`.
  */
+
+
 + (id<OneWaySDKDelegate>)getDelegate;
 /**
  *  Allows the delegate to be reassigned after oneWaySDK has already been initialized.
@@ -255,6 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return If `YES`, oneway ads has been successfully initialized.
  */
 + (BOOL)isInitialized;
+
 
 @end
 NS_ASSUME_NONNULL_END
