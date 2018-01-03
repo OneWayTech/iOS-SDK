@@ -7,7 +7,7 @@
 
 
 
-@interface ViewController ()<OneWaySDKDelegate>
+@interface ViewController ()<oneWaySDKRewardedAdDelegate,oneWaySDKInterstitialAdDelegate>
 @end
 
 
@@ -18,87 +18,92 @@
     [super viewDidLoad];
     self.view =  [[[NSBundle mainBundle] loadNibNamed:@"MainView" owner:self options:nil] firstObject];
     self.view.bounds = [UIScreen mainScreen].bounds;
+    
+    // OneWaySDK - 初始化
+    // 为了加快初始化,可在 AppDelegate - didFinishLaunchingWithOptions 中进行初始化.
+    
+    [OneWaySDK configure:@"po4wvdsaaaygsc7t"];
+    [OWRewardedAd initWithDelegate:self];
+    [OWInterstitialAd initWithDelegate:self];
+    
+    
 }
 
 
-#pragma mark - 初始化
-- (IBAction)adInitialize:(UIButton *) button{
+#pragma mark - 播放激励广告
+- (IBAction)Rewarded:(UIButton *) button{
 
     [UIView animateWithDuration:0.8 animations:^{
-        self.initializeButton.enabled = NO;
-        self.initializeButton.backgroundColor = darkColor;
+        self.RewardedButton.enabled = NO;
+        self.RewardedButton.backgroundColor = darkColor;
     }];
     
     
-    //Note: 为了加快初始化,可在 AppDelegate - didFinishLaunchingWithOptions 中进行初始化.
-    [OneWaySDK initialize:PublishID delegate:self];
-
-
-}
-
-#pragma mark - 播放广告
-- (IBAction)ButtonTapped:(UIButton *)button {
-    
-    if ([OneWaySDK isReady]) {
-        button.enabled = NO;
-        [OneWaySDK show: self];
+    if ([OWRewardedAd isReady]) {
+        [OWRewardedAd show:self];
     }else{
-        NSLog( @"  ads state Not Available");
-
+        NSLog( @"Ad Not Available, plz wait.");
     }
-    
+
 }
 
-
-#pragma mark - OneWaySDK 代理相关
-- (void)oneWaySDKReady:(NSString *)placementId {
-
-    NSLog(@"OneWaySDK Ready for %@",placementId);
-    
-    [UIView animateWithDuration:0.5 animations:^{
-       
-        self.playAdsButton.enabled = YES;
-        self.playAdsButton.backgroundColor = blueColor;
-
+#pragma mark - 播放插屏广告
+- (IBAction)Interstitial:(UIButton *)button {
+    [UIView animateWithDuration:0.8 animations:^{
+        self.InterstitialButton.enabled = NO;
+        self.InterstitialButton.backgroundColor = darkColor;
     }];
-
-}
-
-
-- (void)oneWaySDKDidError:(OneWaySDKError)error withMessage:(NSString *)message {
-
-    NSLog(@"OneWaySDK ERROR: %ld - %@",(long)error, message);
-
-}
-
-- (void)oneWaySDKDidStart:(NSString *)placementId {
-    NSLog(@"OneWaySDK Start");
-   
-    self.playAdsButton.enabled = NO;
-    self.playAdsButton.backgroundColor = darkColor;
-}
-
-
-
-- (void)oneWaySDKDidFinish:(NSString *)placementId withFinishState:(OneWaySDKFinishState)state {
-   
-    NSString *stateString = @"UNKNOWN";
-    switch (state) {
-        case kOneWaySDKFinishStateError:
-            stateString = @"ERROR";
-            break;
-        case kOneWaySDKFinishStateSkipped:
-            stateString = @"SKIPPED";
-            break;
-        case kOneWaySDKFinishStateCompleted:
-            stateString = @"COMPLETED";
-            break;
-        default:
-            break;
+    
+    if ([OWInterstitialAd isReady]) {
+        [OWInterstitialAd show:self];
+    }else{
+        NSLog( @"Ad Not Available, plz wait.");
     }
-    NSLog(@"OneWaySDK FINISH: %@ - %@", stateString, placementId);
+    
+}
+
+#pragma mark - RewardedAd Delegate
+- (void)oneWaySDKRewardedAdReady{
+    [UIView animateWithDuration:0.8 animations:^{
+        self.RewardedButton.enabled = YES;
+        self.RewardedButton.backgroundColor = blueColor;
+    }];
+    NSLog(@"rewarded ad ready");
 
 }
+- (void)oneWaySDKRewardedAdDidShow:(NSString *)tag {
+    NSLog(@"rewarded ad show");
+}
+- (void)oneWaySDKRewardedAdDidClick:(NSString *)tag {
+    NSLog(@"rewarded ad click");
+}
+- (void)oneWaySDKRewardedAdDidClose:(NSString *)tag withState:(NSNumber *)state{
+    NSLog(@"rewarded ad Close");
+}
+
+#pragma mark - Interstitial Delegate
+- (void)oneWaySDKInterstitialAdReady{
+    [UIView animateWithDuration:0.8 animations:^{
+        self.InterstitialButton.enabled = YES;
+        self.InterstitialButton.backgroundColor = blueColor;
+    }];
+    NSLog(@"Interstitial ad ready");
+}
+- (void)oneWaySDKInterstitialAdDidShow:(NSString *)tag {
+    NSLog(@"Interstitial ad show");
+}
+- (void)oneWaySDKInterstitialAdDidClick:(NSString *)tag {
+   NSLog(@"Interstitial ad click");
+}
+- (void)oneWaySDKInterstitialAdDidClose:(NSString *)tag withState:(NSNumber *)state {
+    NSLog(@"Interstitial ad close");
+}
+
+-(void)oneWaySDKDidError:(OneWaySDKError)error withMessage:(NSString *)message{
+    NSLog( @"OneWaySDK Error:  %ld  message:%@", (long)error, message);
+
+}
+
 
 
 

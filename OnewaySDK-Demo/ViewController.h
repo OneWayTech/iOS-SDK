@@ -15,10 +15,10 @@
 @interface ViewController : UIViewController
 
 //初始化
-@property (weak, nonatomic) IBOutlet UIButton *initializeButton;
+@property (weak, nonatomic) IBOutlet UIButton *RewardedButton;
 
 //播放按钮
-@property (weak, nonatomic) IBOutlet UIButton *playAdsButton;
+@property (weak, nonatomic) IBOutlet UIButton *InterstitialButton;
 
 
 @end
