@@ -13,7 +13,9 @@ typedef NS_ENUM(NSInteger, OneWaySDKAdType) {
     kOneWaySDKAdTypeRewarded,
     kOneWaySDKAdTypeFeed,
     kOneWaySDKAdTypeInterstitial,
-    kOneWaySDKAdTypeBanner
+    kOneWaySDKAdTypeBanner,
+    kOneWaySDKAdTypeRecommend,
+    kOneWaySDKAdTypeInterstitialImage
 };
 
 typedef NS_ENUM(NSInteger, OneWaySDKPlacementState) {

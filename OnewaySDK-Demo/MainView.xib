@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="InertstitialImage" destination="vlM-O7-QuE" id="of3-m2-knO"/>
                 <outlet property="InterstitialButton" destination="LSQ-Jh-t6y" id="H4e-Dk-xHg"/>
                 <outlet property="RewardedButton" destination="1OC-Kt-A3i" id="V5d-Tx-Wgy"/>
             </connections>
@@ -55,14 +56,31 @@
                         <action selector="Interstitial:" destination="-1" eventType="touchUpInside" id="SCS-z7-BYc"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-O7-QuE">
+                    <rect key="frame" x="62" y="412" width="250" height="50"/>
+                    <color key="backgroundColor" red="0.2433787137" green="0.2707238495" blue="0.30589833859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="dOa-w4-Ccq"/>
+                        <constraint firstAttribute="height" constant="50" id="muC-9z-QoL"/>
+                    </constraints>
+                    <state key="normal" title="插屏广告">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="InterstitialImage:" destination="-1" eventType="touchUpInside" id="1q8-A6-TkH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="LSQ-Jh-t6y" firstAttribute="top" secondItem="1OC-Kt-A3i" secondAttribute="bottom" constant="27" id="1hm-Pf-QUF"/>
                 <constraint firstItem="1OC-Kt-A3i" firstAttribute="top" secondItem="f5P-R1-yfY" secondAttribute="bottom" constant="50" id="4I1-jC-y8A"/>
+                <constraint firstItem="vlM-O7-QuE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BGj-eL-aBc"/>
                 <constraint firstItem="1OC-Kt-A3i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GrU-5W-DmA"/>
+                <constraint firstItem="vlM-O7-QuE" firstAttribute="top" secondItem="LSQ-Jh-t6y" secondAttribute="bottom" constant="27" id="Jtn-EG-EB0"/>
                 <constraint firstItem="1OC-Kt-A3i" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="KG8-6G-jso"/>
                 <constraint firstItem="LSQ-Jh-t6y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M9T-kI-NOP"/>
+                <constraint firstItem="1OC-Kt-A3i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MVB-A0-e7Z"/>
                 <constraint firstItem="f5P-R1-yfY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pYX-2b-XYl"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="73.5"/>

@@ -14,12 +14,14 @@
 
 @interface ViewController : UIViewController
 
-//初始化
+//激励
 @property (weak, nonatomic) IBOutlet UIButton *RewardedButton;
 
-//播放按钮
+//插屏视频
 @property (weak, nonatomic) IBOutlet UIButton *InterstitialButton;
 
+//插屏图片
+@property (weak, nonatomic) IBOutlet UIButton *InertstitialImage;
 
 @end
 

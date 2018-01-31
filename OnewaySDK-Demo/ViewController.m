@@ -7,7 +7,7 @@
 
 
 
-@interface ViewController ()<oneWaySDKRewardedAdDelegate,oneWaySDKInterstitialAdDelegate>
+@interface ViewController ()<oneWaySDKRewardedAdDelegate,oneWaySDKInterstitialAdDelegate,oneWaySDKInterstitialImageAdDelegate>
 @end
 
 
@@ -25,6 +25,7 @@
     [OneWaySDK configure:@"po4wvdsaaaygsc7t"];
     [OWRewardedAd initWithDelegate:self];
     [OWInterstitialAd initWithDelegate:self];
+    [OWInterstitialImageAd initWithDelegate:self];
     
     
 }
@@ -47,7 +48,7 @@
 
 }
 
-#pragma mark - 播放插屏广告
+#pragma mark - 播放插屏视频
 - (IBAction)Interstitial:(UIButton *)button {
     [UIView animateWithDuration:0.8 animations:^{
         self.InterstitialButton.enabled = NO;
@@ -62,6 +63,19 @@
     
 }
 
+#pragma mark - 播放插屏图片
+- (IBAction)InterstitialImage:(UIButton *)sender {
+    [UIView animateWithDuration:0.8 animations:^{
+        self.InertstitialImage.enabled = NO;
+        self.InertstitialImage.backgroundColor = darkColor;
+    }];
+    
+    if ([OWInterstitialImageAd isReady]) {
+        [OWInterstitialImageAd show:self];
+    }else{
+        NSLog( @"Ad Not Available, plz wait.");
+    }
+}
 #pragma mark - RewardedAd Delegate
 - (void)oneWaySDKRewardedAdReady{
     [UIView animateWithDuration:0.8 animations:^{
@@ -93,10 +107,28 @@
     NSLog(@"Interstitial ad show");
 }
 - (void)oneWaySDKInterstitialAdDidClick:(NSString *)tag {
-   NSLog(@"Interstitial ad click");
+    NSLog(@"Interstitial ad click");
 }
 - (void)oneWaySDKInterstitialAdDidClose:(NSString *)tag withState:(NSNumber *)state {
     NSLog(@"Interstitial ad close");
+}
+
+#pragma mark - InterstitialImage Delegate
+- (void)oneWaySDKInterstitialImageAdReady{
+    [UIView animateWithDuration:0.8 animations:^{
+        self.InertstitialImage.enabled = YES;
+        self.InertstitialImage.backgroundColor = blueColor;
+    }];
+    NSLog(@"InterstitialImage ad ready");
+}
+- (void)oneWaySDKInterstitialImageAdDidShow:(NSString *)tag {
+    NSLog(@"InterstitialImage ad show");
+}
+- (void)oneWaySDKInterstitialImageAdDidClick:(NSString *)tag {
+    NSLog(@"InterstitialImage ad click");
+}
+- (void)oneWaySDKInterstitialImageAdDidClose:(NSString *)tag withState:(NSNumber *)state {
+    NSLog(@"InterstitialImage ad close");
 }
 
 -(void)oneWaySDKDidError:(OneWaySDKError)error withMessage:(NSString *)message{

@@ -11,6 +11,7 @@
 
 #import "OWRewardedAd.h"
 #import "OWInterstitialAd.h"
+#import "OWInterstitialImageAd.h"
 #import "OWUserMetaData.h"
 
 /**

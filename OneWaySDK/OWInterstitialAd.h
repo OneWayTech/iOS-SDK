@@ -56,7 +56,7 @@
  @param isFullScreen 广告是否全屏样式.
  @param tag 自定义tag,回调时传给开发者,用于优化广告点击.
  */
-+ (void)show:(UIViewController *)viewController fullScreen:(BOOL)isFullScreen tag:(NSString *)tag;
++ (void)show:(UIViewController *)viewController tag:(NSString *)tag;
 
 
 @end
